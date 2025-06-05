@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de API</title>
+</head>
+<body>
+    <p id="clique">Clique aqui pra ver os usuários</p>
+    <p id="usuarios"></p>
+    
+    <script>
+        url = "http://127.0.0.1:5000/users"
+        document.getElementById("clique").addEventListener('click', () => {
+            fetch(url)
+            .then(data => {
+                    return data.json();
+                })
+            .then(usuarios => {
+                paragrafo = document.getElementById('usuarios')
+                paragrafo.textContent = JSON.stringify(usuarios)
+            })
+        });
+    </script>
+</body>
+</html>
